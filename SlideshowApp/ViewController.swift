@@ -43,7 +43,8 @@ class ViewController: UIViewController {
     //進むボタン
     @IBAction func Go(_ sender: Any) {
         //ViewdidloadのappendImagesで配列に値は入っている状態
-        if (0 <= nowImagesIndex && nowImagesIndex < 2 )  {
+        //images.countで 配列の数を取得
+        if nowImagesIndex < images.count - 1  {
             nowImagesIndex += 1
             setUIImageView()
         } else {
@@ -54,7 +55,7 @@ class ViewController: UIViewController {
       }
     //戻るボタン
     @IBAction func Back(_ sender: Any) {
-        if (2 >= nowImagesIndex && nowImagesIndex > 0){
+        if nowImagesIndex < images.count - 1 {
             nowImagesIndex -= 1
             setUIImageView()
         }else{
@@ -69,7 +70,7 @@ class ViewController: UIViewController {
     //#selectorで呼び出される定期的に実行される関数
     @objc func updateTimer(_ timer: Timer){
         
-        if (0 <= nowImagesIndex && nowImagesIndex < 2 )  {
+        if nowImagesIndex < images.count - 1  {
             nowImagesIndex += 1
             setUIImageView()
         } else {
@@ -116,13 +117,9 @@ class ViewController: UIViewController {
     
     //segueにて画面遷移を設定
     
-    //@IBAction func tapAction(_ sender: UIImage) {
-        
-    //}
-    
     //２画面目から１画面目へ戻る
     @IBAction func unwind(_ segue: UIStoryboardSegue){
-        
+      
     }
     
     //遷移先のimageViewに値を渡す
@@ -130,9 +127,10 @@ class ViewController: UIViewController {
         // segueから遷移先のExpansionViewControllerのインスタンスを取得する
         // 変数:遷移先ViewController型 = segue.destination as! 遷移先ViewController型
        let expansionViewController : ExpansionViewController = segue.destination as! ExpansionViewController
-        
+       
         //遷移先で宣言している変数に値を設定
         expansionViewController.expansionImage = images[nowImagesIndex]
+        self.timer.invalidate()
     }
     
 

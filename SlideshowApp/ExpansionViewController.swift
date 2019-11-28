@@ -13,9 +13,6 @@ class ExpansionViewController: UIViewController {
     @IBOutlet weak var imagesView: UIImageView!
     
     var expansionImage : UIImage!
-    
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
