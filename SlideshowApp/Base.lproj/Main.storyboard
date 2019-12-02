@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,18 +15,18 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SlideshowApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pUj-e5-bRz">
-                                <rect key="frame" x="40" y="124" width="295" height="304"/>
+                                <rect key="frame" x="40" y="100" width="240" height="118"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Tbt-mO-AVR" appends="YES" id="yDP-eH-QI9"/>
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="De8-b5-b6N">
-                                <rect key="frame" x="303" y="548" width="32" height="30"/>
+                                <rect key="frame" x="248" y="338" width="32" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="ZmF-sE-SzI"/>
                                 </constraints>
@@ -36,7 +36,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5GM-TZ-1SR">
-                                <rect key="frame" x="171.66666666666666" y="548" width="32" height="30"/>
+                                <rect key="frame" x="144" y="338" width="32" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="eZb-Ws-zpb"/>
                                 </constraints>
@@ -46,7 +46,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvm-gz-eZJ">
-                                <rect key="frame" x="40" y="548" width="32" height="30"/>
+                                <rect key="frame" x="40" y="338" width="32" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="xpm-5b-IOY"/>
                                 </constraints>
@@ -76,6 +76,7 @@
                     <connections>
                         <outlet property="BackOutlet" destination="5GM-TZ-1SR" id="dTE-x8-dR7"/>
                         <outlet property="GoOutlet" destination="wvm-gz-eZJ" id="Bo9-d2-8Yp"/>
+                        <outlet property="defaultButton" destination="De8-b5-b6N" id="o1k-dm-vPV"/>
                         <outlet property="imageView" destination="pUj-e5-bRz" id="gjI-QU-vTn"/>
                     </connections>
                 </viewController>
@@ -94,17 +95,17 @@
             <objects>
                 <viewController id="5hu-qS-laO" customClass="ExpansionViewController" customModule="SlideshowApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0dJ-cO-GPf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tfz-Sm-eFX">
-                                <rect key="frame" x="0.0" y="44" width="375" height="650"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="464"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMb-Mx-fR2">
-                                <rect key="frame" x="145" y="704" width="86" height="30"/>
+                                <rect key="frame" x="145" y="494" width="31" height="30"/>
                                 <state key="normal" title="戻る"/>
                                 <connections>
-                                    <segue destination="cBs-fA-uEs" kind="unwind" unwindAction="unwind:" id="F0Q-GN-sIi"/>
+                                    <segue destination="cBs-fA-uEs" kind="unwind" unwindAction="unwind:" id="gSl-2m-Zhi"/>
                                 </connections>
                             </button>
                         </subviews>

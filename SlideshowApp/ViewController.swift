@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet weak var defaultButton: UIButton!
     var images: [UIImage] = []
     
     func appendImages (_ index: Int) -> UIImage? {
@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         //配列に値の設定
         //画像が表示されることは判明
         imageView.image = appendImages(0)
+        
         
     }
     
@@ -55,7 +56,7 @@ class ViewController: UIViewController {
       }
     //戻るボタン
     @IBAction func Back(_ sender: Any) {
-        if nowImagesIndex < images.count - 1 {
+        if (2 >= nowImagesIndex && nowImagesIndex > 0) {
             nowImagesIndex -= 1
             setUIImageView()
         }else{
@@ -118,19 +119,33 @@ class ViewController: UIViewController {
     //segueにて画面遷移を設定
     
     //２画面目から１画面目へ戻る
+    //@IBAction func unwind(_ segue: UIStoryboardSegue, _ sender: UIButton) {
     @IBAction func unwind(_ segue: UIStoryboardSegue){
-      
     }
     
     //遷移先のimageViewに値を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //進むボタンと戻るボタンのタップ有効化
+        GoOutlet.isEnabled = true
+        BackOutlet.isEnabled = true
+        //ボタンの表記を停止→再生へ
+        defaultButton.setTitle("再生", for: .normal)
+        
         // segueから遷移先のExpansionViewControllerのインスタンスを取得する
         // 変数:遷移先ViewController型 = segue.destination as! 遷移先ViewController型
        let expansionViewController : ExpansionViewController = segue.destination as! ExpansionViewController
-       
         //遷移先で宣言している変数に値を設定
+        
+        if self.timer == nil {
         expansionViewController.expansionImage = images[nowImagesIndex]
+        
+        }else{
         self.timer.invalidate()
+        //タイマーを空にする
+        self.timer = nil
+        expansionViewController.expansionImage = images[nowImagesIndex]
+        }
     }
     
 
